@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CarMovement : MonoBehaviour
+public class CarMovement2 : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _force = 5;
@@ -12,6 +12,7 @@ public class CarMovement : MonoBehaviour
     [SerializeField] private float collisionSpeed = 10;
     private Vector3 _input;
     private Vector2 inputRaw;
+
     private void Update()
     {
         GatherInput();
@@ -27,8 +28,8 @@ public class CarMovement : MonoBehaviour
     {
 
         inputRaw = new Vector2(
-               (Keyboard.current.dKey.isPressed ? 1 : 0) - (Keyboard.current.aKey.isPressed ? 1 : 0),
-               (Keyboard.current.wKey.isPressed ? 1 : 0) - (Keyboard.current.sKey.isPressed ? 1 : 0));
+               (Keyboard.current.rightArrowKey.isPressed ? 1 : 0) - (Keyboard.current.leftArrowKey.isPressed ? 1 : 0),
+               (Keyboard.current.upArrowKey.isPressed ? 1 : 0) - (Keyboard.current.downArrowKey.isPressed ? 1 : 0));
 
         _input = new Vector3(inputRaw.x, 0f, inputRaw.y);
     }
